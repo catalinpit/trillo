@@ -17,9 +17,9 @@ Grey dark 3: #999
 */
 /* CSS (NOT SASS) variables */
 :root {
-  --color-primary: #3ba99c;
-  --color-primary-light: #69d1c5;
-  --color-primary-dark: #21897e;
+  --color-primary: #006494;
+  --color-primary-light: #247ba0;
+  --color-primary-dark: #13293d;
   --color-grey-light-1: #faf9f9;
   --color-grey-light-2: #f4f2f2;
   --color-grey-light-3: #f0eeee;
@@ -49,7 +49,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   line-height: 1.6;
-  background-image: linear-gradient(to right bottom, var(--color-primary-light), var(--color-primary-dark));
+  background-image: linear-gradient(to bottom, var(--color-primary-light), var(--color-primary-dark));
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 100vh; }
@@ -62,10 +62,13 @@ body {
   max-width: 120rem;
   margin: 8rem auto;
   background-color: var(--color-grey-light-1);
-  box-shadow: 10px 10px 0px var(--color-grey-dark-1);
+  box-shadow: 10px 10px 0px var(--color-primary-dark);
   min-height: 50rem; }
 
 .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   height: 7rem;
   background-color: #fff;
   border-bottom: var(--color-grey-light-2); }
@@ -94,17 +97,65 @@ body {
   flex: 1; }
 
 .logo {
-  height: 3.25rem; }
+  height: 3.25rem;
+  margin-left: 3rem; }
 
-.search__icon {
-  height: 2rem;
-  width: 2rem; }
+.search {
+  flex: 0 0 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* 
+        They are siblings in the HTML, so we can use the adjacent selector
+    */ }
+  .search__input {
+    /* 
+            The input element doesn't inherit the font family and size and color of the global element.
+        */
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background-color: var(--color-grey-light-2);
+    border: none;
+    border-radius: 100px;
+    padding: 1rem;
+    width: 90%;
+    transition: all .2s;
+    /* 
+            Move the magnifying glass on top of the input
+        */
+    margin-right: -3rem; }
+    .search__input:focus {
+      outline: none;
+      width: 100%;
+      background-color: var(--color-grey-light-3); }
+    .search__input::-webkit-input-placeholder {
+      font-weight: 100;
+      font-size: 1.2rem; }
+      .search__input::-webkit-input-placeholder:focus {
+        font-size: 1.9rem; }
+  .search__input:focus + .search__button {
+    background-color: var(--color-grey-light-3); }
+  .search__button {
+    border: none;
+    background-color: var(--color-grey-light-2);
+    position: relative; }
+    .search__button:focus {
+      outline: none; }
+    .search__button:active {
+      transform: translateY(5px); }
+  .search__icon {
+    height: 2rem;
+    width: 2rem;
+    fill: var(--color-primary-light); }
 
-.user-navigation__icon {
-  height: 2.5rem;
-  width: 2.5rem; }
-
-.user-navigation__user-img {
-  height: 3.5rem;
-  width: 3.5rem;
-  border-radius: 50%; }
+.user-navigation {
+  display: flex;
+  flex-direction: row; }
+  .user-navigation__icon {
+    height: 2.5rem;
+    width: 2.5rem; }
+  .user-navigation__user-img {
+    height: 3.5rem;
+    width: 3.5rem;
+    border-radius: 50%; }

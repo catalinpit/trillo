@@ -6,13 +6,17 @@
     max-width: 120rem;
     margin: 8rem auto;
     background-color: var(--color-grey-light-1);
-    box-shadow: 10px 10px 0px var(--color-grey-dark-1);
+    box-shadow: 10px 10px 0px var(--color-primary-dark);
 
     // for testing
     min-height: 50rem;
 }
 
 .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
     height: 7rem;
     background-color: #fff;
     border-bottom: var(--color-grey-light-2);

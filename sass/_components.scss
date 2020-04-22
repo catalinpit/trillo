@@ -1,23 +1,81 @@
 .logo {
     height: 3.25rem;
+    margin-left: 3rem;
 }
 
 .search {
-    &__input {
+    flex: 0 0 40%;
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__input {
+        /* 
+            The input element doesn't inherit the font family and size and color of the global element.
+        */
+        font-family: inherit;
+        font-size: inherit;
+        color: inherit;
+        background-color: var(--color-grey-light-2);
+        border: none;
+        border-radius: 100px;
+        padding: 1rem;
+        width: 90%;
+        transition: all .2s;
+        /* 
+            Move the magnifying glass on top of the input
+        */
+        margin-right: -3rem;
+
+        &:focus {
+            outline: none;
+            width: 100%;
+            background-color: var(--color-grey-light-3);
+        }
+
+        &::-webkit-input-placeholder {
+            font-weight: 100;
+            font-size: 1.2rem;
+
+            &:focus {
+                font-size: 1.9rem;
+            }
+        }
+    }
+
+    /* 
+        They are siblings in the HTML, so we can use the adjacent selector
+    */
+    &__input:focus + &__button {
+        background-color: var(--color-grey-light-3)
     }
 
     &__button {
+        border: none;
+        background-color: var(--color-grey-light-2);
+        position: relative;
 
+        &:focus {
+            outline: none;
+        }
+
+        &:active {
+            transform: translateY(5px);
+        }
     }
 
     &__icon {
         height: 2rem;
         width: 2rem;
+        fill: var(--color-primary-light);
     }
 }
 
 .user-navigation {
+    display: flex;
+    flex-direction: row;
+
     &__icon-box {
 
     }
