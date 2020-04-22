@@ -17,16 +17,17 @@ Grey dark 3: #999
 */
 /* CSS (NOT SASS) variables */
 :root {
-  --color-primary: #eb2f64;
-  --color-primary-light: #FF3366;
-  --color-primary-dark: #BA265D;
-  --color-grey-light: #faf9f9;
-  --color-grey-light: #f4f2f2;
-  --color-grey-light: #f0eeee;
-  --color-grey-light: #ccc;
-  --color-grey-dark: #333;
-  --color-grey-dark: #777;
-  --color-grey-dark: #999; }
+  --color-primary: #3ba99c;
+  --color-primary-light: #69d1c5;
+  --color-primary-dark: #21897e;
+  --color-grey-light-1: #faf9f9;
+  --color-grey-light-2: #f4f2f2;
+  --color-grey-light-3: #f0eeee;
+  --color-grey-light-4: #ccc;
+  --color-grey-dark-1: #333;
+  --color-grey-dark-2: #777;
+  --color-grey-dark-3: #999;
+  --box-shadow-dark: 0 2rem 6rem rgba(0,0,0,0.3); }
 
 /* global reset */
 * {
@@ -44,7 +45,7 @@ html {
   font-size: 62.5%; }
 
 body {
-  background-color: #eb2f64;
+  background-color: var(--color-primary);
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   line-height: 1.6;
@@ -52,3 +53,58 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 100vh; }
+
+.container {
+  /* 
+        The container can decrease if there is not enough space to display our max-width.
+        It simply occupies 100% of the viewport width if there is not space for 120rem/1200pixels.
+    */
+  max-width: 120rem;
+  margin: 8rem auto;
+  background-color: var(--color-grey-light-1);
+  box-shadow: 10px 10px 0px var(--color-grey-dark-1);
+  min-height: 50rem; }
+
+.header {
+  height: 7rem;
+  background-color: #fff;
+  border-bottom: var(--color-grey-light-2); }
+
+.content {
+  /* 
+        This is our flex container.
+    */
+  display: flex; }
+
+.sidebar {
+  background-color: var(--color-grey-dark-1);
+  /* 
+        Define the sidebar width. The flex property for width is flex-basis.
+
+        But we are using the shorthand flex property.
+
+        0 - don't grow if there's extra space
+        0 - don't shrink if there's not enough space 
+        18% - sidebar space (width)
+    */
+  flex: 0 0 18%; }
+
+.main-view {
+  background-color: olivedrab;
+  flex: 1; }
+
+.logo {
+  height: 3.25rem; }
+
+.search__icon {
+  height: 2rem;
+  width: 2rem; }
+
+.user-navigation__icon {
+  height: 2.5rem;
+  width: 2.5rem; }
+
+.user-navigation__user-img {
+  height: 3.5rem;
+  width: 3.5rem;
+  border-radius: 50%; }

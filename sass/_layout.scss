@@ -1,0 +1,47 @@
+.container {
+    /* 
+        The container can decrease if there is not enough space to display our max-width.
+        It simply occupies 100% of the viewport width if there is not space for 120rem/1200pixels.
+    */
+    max-width: 120rem;
+    margin: 8rem auto;
+    background-color: var(--color-grey-light-1);
+    box-shadow: 10px 10px 0px var(--color-grey-dark-1);
+
+    // for testing
+    min-height: 50rem;
+}
+
+.header {
+    height: 7rem;
+    background-color: #fff;
+    border-bottom: var(--color-grey-light-2);
+}
+
+.content {
+    /* 
+        This is our flex container.
+    */
+    display: flex;
+}
+
+.sidebar {
+    background-color: var(--color-grey-dark-1);
+
+    /* 
+        Define the sidebar width. The flex property for width is flex-basis.
+
+        But we are using the shorthand flex property.
+
+        0 - don't grow if there's extra space
+        0 - don't shrink if there's not enough space 
+        18% - sidebar space (width)
+    */
+    flex: 0 0 18%;
+}
+
+.main-view {
+    background-color: olivedrab;
+
+    flex: 1;
+}
