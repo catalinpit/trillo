@@ -9,8 +9,6 @@
     max-width: 120rem;
     margin: 8rem auto;
 
-    // for testing
-    min-height: 10rem;
     text-align: center;
     border-radius: 10px;
     color: var(--color-grey-light-1);
@@ -52,9 +50,6 @@
     //box-shadow: 0px 0px 50px 0px var(--color-primary-dark);
     box-shadow: 15px 15px 0px var(--color-primary-dark);
     color: var(--color-grey-light-1);
-
-    // for testing
-    min-height: 50rem;
 }
 
 .header {
@@ -95,5 +90,33 @@
 .main-view {
     flex: 1;
 
-    height: 50rem;
+    color: var(--color-primary-dark);
+}
+
+.detail {
+    display: flex;
+    padding: 5rem;
+
+    background-color: var(--color-grey-light-3);
+    border-bottom: 1px solid var(--color-grey-light-4);
+}
+
+.experience {
+    font-size: 1.4rem;
+    flex: 0 0 60%;
+    margin-right: 5rem;
+    padding: 3rem;
+    color: var(--color-grey-light-1);
+
+    background-color: var(--color-container-2);
+    box-shadow: .5rem .4rem 0 rgba(0,0,0,.5);
+}
+
+.skills {
+    flex: 1;
+    padding: 3rem;
+    color: var(--color-grey-light-1);
+    
+    background-color: var(--color-container-2);
+    box-shadow: .5rem .4rem 0 rgba(0,0,0,.5);
 }
