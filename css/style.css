@@ -17,9 +17,9 @@ Grey dark 3: #999
 */
 /* CSS (NOT SASS) variables */
 :root {
-  --color-primary: #006494;
-  --color-primary-light: #247ba0;
-  --color-primary-dark: #13293d;
+  --color-primary: #242629;
+  --color-primary-light: #484c52;
+  --color-primary-dark: #18191b;
   --color-grey-light-1: #faf9f9;
   --color-grey-light-2: #f4f2f2;
   --color-grey-light-3: #f0eeee;
@@ -27,6 +27,8 @@ Grey dark 3: #999
   --color-grey-dark-1: #333;
   --color-grey-dark-2: #777;
   --color-grey-dark-3: #999;
+  --color-container: #faf9f9;
+  --hover-color: #7f5af0;
   --box-shadow-dark: 0 2rem 6rem rgba(0,0,0,0.3); }
 
 /* global reset */
@@ -49,9 +51,6 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   line-height: 1.6;
-  background-image: linear-gradient(to bottom, var(--color-primary-light), var(--color-primary-dark));
-  background-size: cover;
-  background-repeat: no-repeat;
   min-height: 100vh; }
 
 .container {
@@ -61,8 +60,9 @@ body {
     */
   max-width: 120rem;
   margin: 8rem auto;
-  background-color: var(--color-grey-light-1);
-  box-shadow: 10px 10px 0px var(--color-primary-dark);
+  background-color: var(--color-container);
+  box-shadow: 0px 0px 50px 0px var(--color-primary-dark);
+  color: var(--color-grey-light-1);
   min-height: 50rem; }
 
 .header {
@@ -80,7 +80,8 @@ body {
   display: flex; }
 
 .sidebar {
-  background-color: var(--color-grey-dark-1);
+  display: flex;
+  background-color: var(--color-primary-dark);
   /* 
         Define the sidebar width. The flex property for width is flex-basis.
 
@@ -90,10 +91,13 @@ body {
         0 - don't shrink if there's not enough space 
         18% - sidebar space (width)
     */
-  flex: 0 0 18%; }
+  flex: 0 0 18%;
+  flex-direction: column;
+  justify-content: space-between; }
 
 .main-view {
-  flex: 1; }
+  flex: 1;
+  height: 50rem; }
 
 .logo {
   height: 3.25rem;
@@ -146,7 +150,7 @@ body {
   .search__icon {
     height: 2rem;
     width: 2rem;
-    fill: var(--color-primary-light); }
+    fill: var(--color-grey-dark-1); }
 
 .user-navigation {
   display: flex;
@@ -164,9 +168,50 @@ body {
   .user-navigation__icon {
     height: 2.5rem;
     width: 2.5rem;
-    fill: var(--color-primary-light); }
+    fill: var(--color-grey-dark-1); }
   .user-navigation__user-img {
     height: 3.5rem;
     width: 3.5rem;
     border-radius: 50%;
     margin-right: 1rem; }
+
+.side-navigation {
+  font-size: 1.5rem;
+  list-style: none;
+  margin-top: 3rem; }
+  .side-navigation__item {
+    position: relative; }
+    .side-navigation__item:not(:last-child) {
+      margin-bottom: .5rem; }
+  .side-navigation__item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 3px;
+    background-color: var(--hover-color);
+    transform: scaleY(0);
+    transition: transform 0.3s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.3s, background-color 0.2s; }
+  .side-navigation__item:hover::before {
+    transform: scaleY(1);
+    width: 100%; }
+  .side-navigation__link:link, .side-navigation__link:visited {
+    color: var(--color-grey-light-1);
+    text-decoration: none;
+    text-transform: uppercase;
+    display: block;
+    padding: 1.5rem 4rem;
+    /*
+            So the text appears on top of the purple hover
+        */
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center; }
+  .side-navigation__icon {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 2rem;
+    /* The current color of the parent element */
+    fill: currentColor; }

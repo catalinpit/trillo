@@ -5,8 +5,9 @@
     */
     max-width: 120rem;
     margin: 8rem auto;
-    background-color: var(--color-grey-light-1);
-    box-shadow: 10px 10px 0px var(--color-primary-dark);
+    background-color: var(--color-container);
+    box-shadow: 0px 0px 50px 0px var(--color-primary-dark);
+    color: var(--color-grey-light-1);
 
     // for testing
     min-height: 50rem;
@@ -30,7 +31,8 @@
 }
 
 .sidebar {
-    background-color: var(--color-grey-dark-1);
+    display: flex;
+    background-color: var(--color-primary-dark);
 
     /* 
         Define the sidebar width. The flex property for width is flex-basis.
@@ -42,8 +44,12 @@
         18% - sidebar space (width)
     */
     flex: 0 0 18%;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .main-view {
     flex: 1;
+
+    height: 50rem;
 }
