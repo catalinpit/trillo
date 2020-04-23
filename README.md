@@ -1,7 +1,7 @@
 # Trillo
 Trillo project
 
-[Live Preview](#) 🚀
+[Live Preview](https://catalinpit.github.io/trillo/?refresh) 🚀
 
 *Taking notes while building the application from Jonas's tutorial => [Advanced CSS and SASS](https://udemy.com/course/advanced-css-and-sass).* ‼️
 
