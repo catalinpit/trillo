@@ -124,3 +124,69 @@
         fill: currentColor;
     }
 }
+
+.paragraph {
+    line-height: 3rem;
+}
+
+.paragraph:not(:last-of-type) {
+    margin-bottom: 2rem;
+}
+
+.list {
+    list-style: none;
+    margin: 3rem 0;
+    padding: 3rem 0;
+    border-top: 1px solid var(--color-grey-light-4);
+    border-bottom: 1px solid var(--color-grey-light-4);
+
+    display: flex;
+    flex-wrap: wrap;
+
+    &__item {
+        flex: 0 0 50%;
+        margin-bottom: .5rem;
+    }
+
+    &__item::before {
+        content: "";
+        display: inline-block;
+        height: 1.2rem;
+        width: 1.2rem;
+        margin-right: .5rem;
+
+        /* 
+            For older browsers
+        */
+        // background-image: url(./../img/chevron-thin-right.svg);
+        // background-size: cover;
+
+        /*
+            For modern browsers - masks
+        */
+        background-color: var(--hover-color);
+        -webkit-mask-image: url(./../img/chevron-thin-right.svg);
+        -webkit-mask-size: cover;
+        mask-image: url(./../img/chevron-thin-right.svg);
+        mask-size: cover;
+    }
+}
+
+.recommend {
+    font-size: 1.3rem;
+}
+
+.highlight {
+    background: linear-gradient(to right, var(--hover-color), mediumpurple);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: 0 88%;
+    transition: background-size 0.25s ease-in;
+    transition: all .5s;
+    padding: .4rem;
+
+    &:hover {
+        background-size: 100% 90%;
+        transform: skewX(-10deg);
+    }
+}
