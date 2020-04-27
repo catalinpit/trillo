@@ -172,8 +172,76 @@
     }
 }
 
+.list_sidebar {
+    list-style: none;
+
+    &__col {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+
+    &__row {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+
+    &__item {
+        flex: 0 0 50%;
+        margin-bottom: .5rem;
+    }
+
+    &__item::before {
+        content: "";
+        display: inline-block;
+        height: 1.2rem;
+        width: 1.2rem;
+        margin-right: .5rem;
+
+        /* 
+            For older browsers
+        */
+        // background-image: url(./../img/chevron-thin-right.svg);
+        // background-size: cover;
+
+        /*
+            For modern browsers - masks
+        */
+        background-color: var(--hover-color);
+        -webkit-mask-image: url(./../img/chevron-thin-right.svg);
+        -webkit-mask-size: cover;
+        mask-image: url(./../img/chevron-thin-right.svg);
+        mask-size: cover;
+    }
+}
+
 .recommend {
     font-size: 1.3rem;
+    flex: 1;
+
+    display: flex;
+    align-items: center;
+
+    &__count {
+        margin-right: auto;
+    }
+
+    &__friends {
+
+    }
+
+    &__photo {
+        box-sizing: content-box;
+        height: 4rem;
+        width: 4rem;
+        border-radius: 50%;
+        border: 1.5px solid mediumpurple;
+
+        &:not(:last-child) {
+            margin-right: -2rem;
+        }
+    }
 }
 
 .highlight {
@@ -188,5 +256,185 @@
     &:hover {
         background-size: 100% 90%;
         transform: skewX(-10deg);
+    }
+}
+
+.headings {
+    margin-bottom: 1rem;
+    letter-spacing: .1rem;
+}
+
+.position {
+    font-style: italic;
+    letter-spacing: .05rem;
+}
+
+.underline {
+    background-image: linear-gradient(120deg, var(--hover-color) 0%, var(--hover-color) 100%);
+    background-repeat: no-repeat;
+    background-size: 100% .2em;
+    background-position: 0 100%;
+    transition: background-size 0.25s ease-in;
+    transition: all .5s;
+}
+
+.contact {
+    padding: 3.5rem 0;
+    text-align: center;
+
+    &__for-hire {
+        font-size: 2rem;
+        font-weight: 200;
+        text-transform: uppercase;
+        margin-bottom: 2.5rem;
+    }
+}
+
+.btn {
+    font-size: 1.7rem;
+    letter-spacing: .4rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 50rem;
+    background-image: linear-gradient(to right, var(--hover-color), mediumpurple);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+
+    & > * {
+        display: inline-block;
+        /* 
+            Set the height and the width to match those of the parent element
+        */
+        width: 100%;
+        height: 100%;
+        transition: all .4s;
+    }
+
+    &__visible { 
+        padding: 2rem 8rem;
+    }
+
+    &__invisible {
+        position: absolute;
+        left: 0;
+        padding: 2rem 0;
+        /* 
+            Move up exactly the size of the element
+        */
+        top: -100%;
+    }
+
+    &:hover {
+        background-image: linear-gradient(to left, var(--hover-color), mediumpurple);
+    }
+
+    &:hover &__visible {
+        transform: translateY(100%);
+    }
+
+    &:hover &__invisible {
+        top: 0;
+    }
+
+    &:focus {
+        outline: none;
+        animation: pulsate 1s infinite;
+    }
+}
+
+.overview {
+    display: flex;
+    align-items: center;
+    box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.5);
+
+    &__heading {
+        margin-right: auto; // occupy all the available space
+        font-size: 2rem;
+        text-transform: uppercase;
+        font-weight: 200;
+        letter-spacing: .1rem;
+        padding: 2rem 3rem;
+    }
+
+    &__location {
+        font-size: 1.3rem;
+        display: flex;
+        align-items: center;
+    }
+
+    &__icon {
+        height: 2rem;
+        width: 2rem;
+        fill: var(--hover-color);
+        margin-right: 2rem;
+    }
+
+    &__info {
+        background-color: var(--hover-color);
+        color: #fff;
+        align-self: stretch;
+        padding: 1.5rem;
+        margin-left: 2rem;
+        text-transform: uppercase;
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    &__info-total {
+        font-size: 1.5rem;
+        font-weight: 500;
+    }
+
+    &__info-count {
+        font-weight: 200;
+        letter-spacing: .1rem;
+    }
+}
+
+.btn-inline {
+    border: none;
+    color: var(--hover-color);
+    font-size: inherit;
+    /*
+        We use currentColor so the border has the same color as the text
+    */
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 2px;
+    display: inline-block;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all .4s;
+
+    &:hover {
+        color: mediumpurple;
+        font-weight: 900;
+    }
+
+    &:focus {
+        outline: none;
+        animation: pulsate 1s;
+    }
+}
+
+@keyframes pulsate {
+    0% {
+        transform: scale(1);
+        box-shadow: none;
+    }
+
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 1rem 4rem rgba(0,0,0,0.4);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: none;
     }
 }

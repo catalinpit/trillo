@@ -114,9 +114,17 @@
 
 .skills {
     flex: 1;
-    padding: 3rem;
-    color: var(--color-grey-light-1);
-    
-    background-color: var(--color-container-2);
-    box-shadow: .5rem .4rem 0 rgba(0,0,0,.5);
+
+    &__block {
+        font-size: 1.4rem;
+        padding: 3rem;
+        color: var(--color-grey-light-1);
+
+        background-color: var(--color-container-2);
+        box-shadow: .5rem .4rem 0 rgba(0,0,0,.5);
+
+        &:not(:last-child) {
+            margin-bottom: 3rem;
+        }
+    }
 }
