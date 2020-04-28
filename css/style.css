@@ -46,6 +46,9 @@ html {
   box-sizing: border-box;
   /* global font size */
   font-size: 62.5%; }
+  @media only screen and (max-width: 68.75em) {
+    html {
+      font-size: 50%; } }
 
 body {
   background-color: var(--color-primary);
@@ -97,6 +100,11 @@ body {
   background-color: var(--color-container);
   box-shadow: 15px 15px 0px var(--color-primary-dark);
   color: var(--color-grey-light-1); }
+  @media only screen and (max-width: 75em) {
+    .container {
+      margin: 0;
+      max-width: 100%;
+      width: 100%; } }
 
 .header {
   display: flex;
@@ -111,6 +119,9 @@ body {
         This is our flex container.
     */
   display: flex; }
+  @media only screen and (max-width: 56.25em) {
+    .content {
+      flex-direction: column; } }
 
 .sidebar {
   display: flex;
@@ -213,10 +224,21 @@ body {
   font-size: 1.5rem;
   list-style: none;
   margin-top: 3rem; }
+  @media only screen and (max-width: 56.25em) {
+    .side-navigation {
+      display: flex;
+      flex-direction: row;
+      margin-top: 0; } }
   .side-navigation__item {
     position: relative; }
     .side-navigation__item:not(:last-child) {
       margin-bottom: .5rem; }
+      @media only screen and (max-width: 56.25em) {
+        .side-navigation__item:not(:last-child) {
+          margin-bottom: 0; } }
+    @media only screen and (max-width: 56.25em) {
+      .side-navigation__item {
+        flex: 1; } }
   .side-navigation__item::before {
     content: "";
     position: absolute;
@@ -243,6 +265,10 @@ body {
     z-index: 10;
     display: flex;
     align-items: center; }
+    @media only screen and (max-width: 56.25em) {
+      .side-navigation__link:link, .side-navigation__link:visited {
+        justify-content: center;
+        padding: 2rem; } }
   .side-navigation__icon {
     width: 2rem;
     height: 2rem;
@@ -323,6 +349,8 @@ body {
   align-items: center; }
   .recommend__count {
     margin-right: auto; }
+  .recommend__friends {
+    display: flex; }
   .recommend__photo {
     box-sizing: content-box;
     height: 4rem;

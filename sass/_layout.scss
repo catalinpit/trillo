@@ -50,6 +50,12 @@
     //box-shadow: 0px 0px 50px 0px var(--color-primary-dark);
     box-shadow: 15px 15px 0px var(--color-primary-dark);
     color: var(--color-grey-light-1);
+
+    @media only screen and (max-width: $breakpoint-largest) {
+        margin: 0;
+        max-width: 100%;
+        width: 100%;
+    }
 }
 
 .header {
@@ -67,6 +73,10 @@
         This is our flex container.
     */
     display: flex;
+
+    @media only screen and (max-width: $breakpoint-medium) {
+        flex-direction: column;
+    }
 }
 
 .sidebar {

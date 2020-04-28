@@ -38,6 +38,10 @@ Grey dark 3: #999
     --box-shadow-dark: 0 2rem 6rem rgba(0,0,0,0.3);
 }
 
+$breakpoint-largest: 75em; // 1200px (1200 / 16)
+$breakpoint-large: 68.75em; // 1100px
+$breakpoint-medium: 56.25em; // 900px
+
 /* global reset */
 * {
     margin: 0;
@@ -54,6 +58,10 @@ html {
     box-sizing: border-box;
     /* global font size */
     font-size: 62.5%; // 1 rem = 10px;
+
+    @media only screen and (max-width: $breakpoint-large) {
+        font-size: 50%;
+    }
 }
 
 body {
