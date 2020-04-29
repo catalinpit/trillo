@@ -15,6 +15,16 @@
         letter-spacing: .2rem;
     
         color: var(--color-primary-dark);
+
+        @media only screen and (max-width: $breakpoint-small) {
+            font-size: 1rem;
+            letter-spacing: 0rem;
+        }
+
+        @media only screen and (max-width: $breakpoint-tiny) {
+            order: 1;
+            flex: 0 0 100%;
+        }
     }
 
     &__company {
@@ -413,6 +423,21 @@
     &__info-count {
         font-weight: 200;
         letter-spacing: .1rem;
+    }
+
+    @media only screen and (max-width: $breakpoint-small) {
+        &__heading {
+            font-size: 1.5rem;
+            padding: 1.5rem 2.5rem;
+        }
+
+        &__info {
+            padding: 1rem;
+        }
+
+        &__info-total {
+            font-size: 1rem;
+        }
     }
 }
 
